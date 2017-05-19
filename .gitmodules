@@ -1,0 +1,6 @@
+[submodule "server/libs/iw_parse"]
+	path = server/libs/iw_parse
+	url = https://github.com/cuzzo/iw_parse.git
+[submodule "server/libs/WLAN-VPN-Pi"]
+	path = server/libs/WLAN-VPN-Pi
+	url = https://github.com/martinsauter/WLAN-VPN-Pi.git

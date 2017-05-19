@@ -1,0 +1,19 @@
+Reference
+===========
+http://randomnerdtutorials.com/raspberry-pi-web-server-using-flask-to-control-gpios/
+https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md
+https://learn.adafruit.com/onion-pi/do-more-dot-dot-dot
+https://sourceforge.net/projects/raspberry-gpio-python/
+
+Libs
+===========
+https://github.com/cuzzo/iw_parse
+
+Prereqs
+===========
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install python-pip python-flask
+sudo pip install flask
+
+

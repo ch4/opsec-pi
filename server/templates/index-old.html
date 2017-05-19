@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<head>
+   <title>RPi Web Server</title>
+</head>
+
+<body>
+	<h1>RPi Web Server</h1>
+	{{ wifiNetworks }}
+	{% for wifiNetwork in wifiNetworks %}
+		{{ wifiNetwork.Name }}
+	{% endfor %}
+</body>
+</html>

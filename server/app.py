@@ -1,8 +1,9 @@
 import subprocess
+import libs.evil as evil
 from libs.iw_parse import get_interfaces
 from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
-BACKHAUL_INTERFACE = 'wlan0' # TODO: load this from a preferences file
+BACKHAUL_INTERFACE = 'wlan1' # TODO: load this from a preferences file
 
 @app.route('/scan', methods=['GET'])
 def scan_wifi():
@@ -14,6 +15,30 @@ def scan_open_wifi():
 	networks = get_interfaces(interface=BACKHAUL_INTERFACE)
 	open_networks = filter(lambda x: x['Encryption'] == 'Open', networks) 
 	return jsonify({'networks':open_networks})
+	
+@app.route('/network/connect', methods=['POST'])
+def connect_to_network():
+	body = request.get_json()
+	name = body['Name']
+	encryption = body['Encryption']
+	password = None
+	
+	try:
+		password = body['Password']
+	except:
+		pass
+		
+	print(str(body))
+	evil.connect_to_network(BACKHAUL_INTERFACE, name, get_encryption_type_from_iwlist_type(encryption), password)
+	return 'hello'
+
+def get_encryption_type_from_iwlist_type(iwlist_type):
+	if iwlist_type == 'Open':
+		return 'OPEN'
+	if iwlist_type == 'WEP':
+		return 'WEP'
+
+	return 'WPA'
 
 @app.route("/")
 def main():

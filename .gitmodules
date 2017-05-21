@@ -4,3 +4,6 @@
 [submodule "server/libs/WLAN-VPN-Pi"]
 	path = server/libs/WLAN-VPN-Pi
 	url = https://github.com/martinsauter/WLAN-VPN-Pi.git
+[submodule "server/libs/7741445"]
+	path = server/libs/7741445
+	url = https://gist.github.com/7741445.git

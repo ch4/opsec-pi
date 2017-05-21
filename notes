@@ -4,6 +4,7 @@ http://randomnerdtutorials.com/raspberry-pi-web-server-using-flask-to-control-gp
 https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md
 https://learn.adafruit.com/onion-pi/do-more-dot-dot-dot
 https://sourceforge.net/projects/raspberry-gpio-python/
+https://git.ujacraft.es/japp0005/Archer_T4U_RTL8812AU/raw/master/Documents/wpa_cli_with_wpa_supplicant.pdf
 
 Libs
 ===========
@@ -17,3 +18,7 @@ sudo apt-get install python-pip python-flask
 sudo pip install flask
 
 
+TODO
+===========
+* Test connecting to WEP networks
+	* The evil script is funky- it's super dependent on the wpa_cli utility's nuances. For example, it wasn't working for adding WPA network passwords because the password has to be double-escaped with both single and double quotes in wpa_cli (wtf)

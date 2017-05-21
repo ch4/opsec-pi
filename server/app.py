@@ -28,10 +28,10 @@ def connect_to_network():
 	except:
 		pass
 		
-	print(str(body))
 	evil.connect_to_network(BACKHAUL_INTERFACE, name, get_encryption_type_from_iwlist_type(encryption), password)
-	return 'hello'
-
+	
+	return jsonify(body)
+	
 def get_encryption_type_from_iwlist_type(iwlist_type):
 	if iwlist_type == 'Open':
 		return 'OPEN'

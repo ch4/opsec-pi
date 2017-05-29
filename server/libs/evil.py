@@ -114,7 +114,9 @@ def get_networks(iface, retry=10):
         time.sleep(0.5)
     logging.error("Failed to list networks")
 
-
+def disconnect_all(_iface):
+	return _disconnect_all(_iface)
+	
 def _disconnect_all(_iface):
     """
     Disconnect all wireless networks.

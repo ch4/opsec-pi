@@ -5,6 +5,12 @@ https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md
 https://learn.adafruit.com/onion-pi/do-more-dot-dot-dot
 https://sourceforge.net/projects/raspberry-gpio-python/
 https://git.ujacraft.es/japp0005/Archer_T4U_RTL8812AU/raw/master/Documents/wpa_cli_with_wpa_supplicant.pdf
+https://github.com/grugq/PORTALofPi
+https://news.ycombinator.com/item?id=14434086
+https://github.com/jlund/streisand
+https://github.com/trailofbits/algo
+http://www.orangepi.org/orangepibbsen/forum.php?mod=viewthread&tid=1288&extra=page%3D1
+https://github.com/znoxx/torbox
 
 Libs
 ===========
@@ -14,11 +20,25 @@ Prereqs
 ===========
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install python-pip python-flask
+sudo apt-get install python-pip python-flask autossh
 sudo pip install flask
 
+API
+===========
+GET /scan
+GET /scan/open
+POST /network/connect
+POST /network/disconnect
 
 TODO
 ===========
+* Passthrough captive login portals to authorize the pi before initiating tunnel
 * Test connecting to WEP networks
 	* The evil script is funky- it's super dependent on the wpa_cli utility's nuances. For example, it wasn't working for adding WPA network passwords because the password has to be double-escaped with both single and double quotes in wpa_cli (wtf)
+* Support manually adding ssh server fingerprint instead of TOFU
+* Support uploading and verifying rsa private keys for ssh server
+	* Or, generate a keypair on the pi and tell the user to add it onto their server
+* Support stealthy ssh: http://blog.wrouesnel.com/articles/Setting%20up%20sshttp/, https://github.com/stealth/sshttp
+* Make a one-click setup solution that connects to DO/Linode and sets up a server, then grabs the config and sets it up on the pi
+* Monitor temperature to make sure it doesn't overheat in the enclosure
+	* "vcgencmd measure_temp"

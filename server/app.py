@@ -32,6 +32,11 @@ def connect_to_network():
 	
 	return jsonify(body)
 	
+@app.route('/network/disconnect', methods=['POST'])
+def disconnect_interface():
+	evil.disconnect_all(BACKHAUL_INTERFACE)
+	return jsonify({})
+	
 def get_encryption_type_from_iwlist_type(iwlist_type):
 	if iwlist_type == 'Open':
 		return 'OPEN'
@@ -56,4 +61,5 @@ def main():
 	#~ pass
 
 if __name__ == "__main__":
-	app.run(host='0.0.0.0', port=80, debug=True)
+	#~ app.run(host='0.0.0.0', port=80, debug=True)
+	app.run(host='192.168.55.1', port=80, debug=True)
